@@ -60,3 +60,4 @@ typings/
 # LeanCloud configuration
 .avoscloud
 .leancloud
+package-lock.json
