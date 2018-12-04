@@ -1,17 +1,21 @@
 const Router = require('koa-router')
-const wechat = require('co-wechat')
+const { wechat } = require('../utils/wx')
 
 const router = new Router({ prefix: '/wechat' })
 
-const config = {
-  token: process.env.WX_TOKEN,
-  appid: process.env.WX_APP_ID,
-  encodingAESKey: process.env.EncodingAESKey,
-}
-
-router.get('/', wechat(config).middleware(async (message, ctx) => {
-  console.log('收到微信消息：', { message })
-  return 'Hello World!'
+router.post('/', wechat(async (message, ctx) => {
+  console.log(`收到的消息：{
+    ${message}
+  }`)
+  const { ToUserName, FromUserName, CreateTime, MsgType, Content, MsgId } = message
+  return [
+    {
+      title: '归去来',
+      description: '归去来兮，田园将芜胡不归？',
+      picurl: 'http://p2.qhimg.com/t01698af9de473dae12.jpg',
+      url: 'http://t.cn/Eyb4lD2',
+    },
+  ]
 }))
 
 module.exports = router
