@@ -8,14 +8,32 @@ router.get('/', wechat()) // 用于服务器配置校验
 router.post('/', wechat(async (message, ctx) => {
   console.log('收到的消息:', message)
   const { ToUserName, FromUserName, CreateTime, MsgType, Content, MsgId } = message
-  return [
-    {
-      title: '归去来',
-      description: '归去来兮，田园将芜胡不归？',
-      picurl: 'http://p2.qhimg.com/t01698af9de473dae12.jpg',
-      url: 'http://t.cn/Eyb4lD2',
-    },
-  ]
+  switch (Content) {
+    case 'text':
+      return 'Hello World！'
+    case 'music':
+      return {
+        title: '小城谣',
+        description: '勺子',
+        musicUrl: 'http://file.youngjuning.com/demo.mp3',
+        hqMusicUrl: 'http://file.youngjuning.com/demo.mp3',
+      }
+    case 'article':
+      return [
+        {
+          title: '归去来',
+          description: '归去来兮，田园将芜胡不归',
+          picurl: 'https://i.loli.net/2018/12/04/5c0633fcb416c.jpg',
+          url: 'https://baike.baidu.com/item/%E5%94%90%E5%AB%A3',
+        },
+      ]
+    case 'todo':
+      return 'http://ccrj4w.natappfree.cc'
+    default:
+      return {
+        type: 'customerService',
+      }
+  }
 }))
 
 module.exports = router
