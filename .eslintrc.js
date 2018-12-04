@@ -16,8 +16,8 @@ module.exports = {
     "semi": [2, 'never'],
     "max-len": [0,{ "code": 200 }],
     "object-curly-newline": 0,
-    "no-unused-vars": 1,
-    "no-shadow": ["error", { "allow": ["err","error"] }],
-    "no-lone-blocks": 0
+    "no-unused-vars": [1, { "args": "none" }],
+    "no-shadow": [2, { "allow": ["err","error"] }],
+    "no-lone-blocks": 0,
   }
 }

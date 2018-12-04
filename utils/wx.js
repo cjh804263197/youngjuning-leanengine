@@ -1,8 +1,8 @@
 const coWechat = require('co-wechat') // 微信公众平台消息接口服务中间件
 
 const config = {
-  token: process.env.WX_TOKEN,
   appid: process.env.WX_APP_ID,
+  token: process.env.WX_TOKEN,
   encodingAESKey: process.env.EncodingAESKey,
 }
 
