@@ -9,8 +9,8 @@ const config = {
   encodingAESKey: process.env.EncodingAESKey,
 }
 
-router.get('/', wechat(config).middleware(async (message, ctx) => {
-  console.log(message, ctx)
+router.use('/', wechat(config).middleware(async (message, ctx) => {
+  console.log('收到微信消息：', { message })
   // 微信输入信息就是这个 message
   switch (message.FormUserName) {
     case '屌丝':
