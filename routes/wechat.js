@@ -9,7 +9,7 @@ const config = {
   encodingAESKey: process.env.EncodingAESKey,
 }
 
-router.use('/', wechat(config).middleware(async (message, ctx) => {
+router.get('/', wechat(config).middleware(async (message, ctx) => {
   console.log('收到微信消息：', { message })
   return 'Hello World!'
 }))
