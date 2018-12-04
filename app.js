@@ -11,6 +11,7 @@ const bodyParser = require('koa-bodyparser')
 require('./cloud')
 
 const app = new Koa()
+const router = new Router()
 
 // 设置模版引擎
 app.use(views(path.join(__dirname, 'views')))
@@ -18,7 +19,7 @@ app.use(views(path.join(__dirname, 'views')))
 // 设置静态资源目录
 app.use(statics(path.join(__dirname, 'public')))
 
-const router = new Router()
+// 设置默认路由
 app.use(router.routes())
 
 // 加载云引擎中间件
@@ -33,6 +34,6 @@ router.get('/', async (ctx) => {
 
 // 可以将一类的路由单独保存在一个文件中
 app.use(require('./routes/todos').routes())
-app.use(require('./routes/wechat').routes())
+app.use(require('./routes/wx').routes())
 
 module.exports = app

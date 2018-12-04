@@ -5,6 +5,7 @@
   "description": "A sample Node.js app using Koa",
   "main": "server.js",
   "scripts": {
+    "up": "lean up --port 3300",
     "fix": "eslint --fix ./",
     "lint": "eslint lint ./",
     "start": "node server.js",
