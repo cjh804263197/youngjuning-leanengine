@@ -35,7 +35,7 @@ $ lean init
 ## wechat sdk开发常用包
 
 - [wechat](http://t.cn/EywsiRb)：微信公共平台消息接口服务中间件与API SDK
-  - 【√】[co-wechat](http://t.cn/EyA7xfJ)：微信公共平台 `OAuth` 接口消息接口服务中间件与API SDK（支持Koa、Co、Egg）
+  - 【√】[co-wechat](http://t.cn/EyA7xfJ)：微信公众平台消息接口服务中间件（支持Koa、Co、Egg）
 - [wechat-api](http://t.cn/EyA215h)：本模块只负责与 `access_token` 有关的高级接口功能
   - 【√】[co-wechat-api](http://t.cn/EyAG2mf)：Wechat API(ES6版)
 - [wechat-oauth](http://t.cn/EywsnyK)：微信公共平台 `OAuth` 接口消息接口服务中间件与API SDK
