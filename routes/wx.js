@@ -27,8 +27,10 @@ router.post('/', wechat(async (message, ctx) => {
           url: 'https://baike.baidu.com/item/%E5%94%90%E5%AB%A3',
         },
       ]
+    case 'bind':
+      return 'http://jjpegx.natappfree.cc/bind'
     default:
-      return 'http://ccrj4w.natappfree.cc/weui'
+      return '请到首页逛一逛：http://jjpegx.natappfree.cc'
   }
 }))
 
