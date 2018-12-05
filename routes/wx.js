@@ -28,9 +28,9 @@ router.post('/', wechat(async (message, ctx) => {
         },
       ]
     case 'bind':
-      return 'http://jjpegx.natappfree.cc/bind'
+      return 'http://wzydmx.natappfree.cc/bind'
     default:
-      return '请到首页逛一逛：http://jjpegx.natappfree.cc'
+      return '请到首页逛一逛：http://wzydmx.natappfree.cc/'
   }
 }))
 
