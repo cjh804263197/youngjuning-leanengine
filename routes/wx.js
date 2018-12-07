@@ -8,9 +8,13 @@ const appsecret = process.env.WX_APP_SC
 const router = new Router({ prefix: '/wx' })
 const api = new WechatAPI(appid, appsecret)
 
-router.get('/', wechat()) // 用于服务器配置校验
+// 用于服务器配置校验
+router.get('/', wechat(async (message, ctx) => {
+  console.log('get请求')
+}))
 
 router.post('/', wechat(async (message, ctx) => {
+  await api.createMenu(menu)
   console.log('收到的消息:', message)
   const { ToUserName, FromUserName, CreateTime, MsgType, Content, MsgId } = message
   switch (Content) {
