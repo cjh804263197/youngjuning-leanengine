@@ -1,7 +1,12 @@
 const Router = require('koa-router')
-const { wechat } = require('../utils/wx')
+const { wechat, menu } = require('../utils/wx')
+const WechatAPI = require('co-wechat-api')
+
+const appid = process.env.WX_APP_ID
+const appsecret = process.env.WX_APP_SC
 
 const router = new Router({ prefix: '/wx' })
+const api = new WechatAPI(appid, appsecret)
 
 router.get('/', wechat()) // 用于服务器配置校验
 

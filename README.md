@@ -36,7 +36,7 @@ $ lean init
 
 - [wechat](http://t.cn/EywsiRb)：微信公共平台消息接口服务中间件与API SDK
   - 【√】[co-wechat](http://t.cn/EyA7xfJ)：微信公众平台消息接口服务中间件（支持Koa、Co、Egg）
-- [wechat-api](http://t.cn/EyA215h)：本模块只负责与 `access_token` 有关的高级接口功能
+- [wechat-api](http://t.cn/EyA215h)：微信公共平台API,本模块只负责与 `access_token` 有关的高级接口功能
   - 【√】[co-wechat-api](http://t.cn/EyAG2mf)：Wechat API(ES6版)
 - [wechat-oauth](http://t.cn/EywsnyK)：微信公共平台 `OAuth` 接口消息接口服务中间件与API SDK
-  - 【√】[co-wechat-oauth](http://t.cn/EyAA5wl)：Wechat OAuth for ES6。微信公共平台OAuth接口消息接口服务中间件与API 
+  - 【√】[co-wechat-oauth](http://t.cn/EyAA5wl)：Wechat OAuth for ES6。微信公共平台OAuth接口消息接口服务中间件与API
