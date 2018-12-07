@@ -10,34 +10,42 @@ const wechatConfig = wechat(config).middleware()
 
 const wechatMessageService = wechat(config).middleware(async (message, ctx) => {
   console.log('收到的消息:', message)
-  const { Content } = message
-  switch (Content) {
+  switch (message.MsgType) {
     case 'text':
-      return 'Hello World！'
-    case 'music':
-      return {
-        title: '小城谣',
-        description: '勺子',
-        musicUrl: 'http://file.youngjuning.com/demo.mp3',
-        hqMusicUrl: 'http://file.youngjuning.com/demo.mp3',
+      if (message.Content === 'link') {
+        return '<a href="http://wpa.qq.com/msgrd?V=1&Uin=806719384">QQ咨询预约</a>'
       }
-    case 'article':
-      return [
-        {
-          title: '归去来',
-          description: '归去来兮，田园将芜胡不归',
-          picurl: 'https://i.loli.net/2018/12/04/5c0633fcb416c.jpg',
-          url: 'https://baike.baidu.com/item/%E5%94%90%E5%AB%A3',
+      return '普通文本消息'
+    case 'image':
+      return {
+        type: 'image',
+        content: {
+          mediaId: message.MediaId,
         },
-      ]
-    case 'bind':
-      return 'http://wzydmx.natappfree.cc/bind'
+      }
+    case 'voice':
+      return {
+        type: 'voice',
+        content: {
+          mediaId: message.MediaId,
+        },
+      }
+    case 'location':
+      return `您的位置：${message.Label}`
     default:
-      return '请到首页逛一逛：http://wzydmx.natappfree.cc/'
+      return '你发送了不支持的消息类型！'
   }
 })
+
+const stuffBindPage = async (ctx) => {
+  const title = '账号绑定'
+  await ctx.render('wechat/stuffBind', {
+    title,
+  })
+}
 
 module.exports = {
   wechatConfig,
   wechatMessageService,
+  stuffBindPage,
 }
