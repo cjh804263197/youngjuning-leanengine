@@ -1,22 +1,16 @@
-const Router = require('koa-router')
-const { wechat, menu } = require('../utils/wx')
-const WechatAPI = require('co-wechat-api')
+const wechat = require('co-wechat')
 
-const appid = process.env.WX_APP_ID
-const appsecret = process.env.WX_APP_SC
+const config = {
+  appid: process.env.WX_APP_ID,
+  token: process.env.WX_TOKEN,
+  encodingAESKey: process.env.EncodingAESKey,
+}
 
-const router = new Router({ prefix: '/wx' })
-const api = new WechatAPI(appid, appsecret)
+const wechatConfig = wechat(config).middleware()
 
-// 用于服务器配置校验
-router.get('/', wechat(async (message, ctx) => {
-  console.log('get请求')
-}))
-
-router.post('/', wechat(async (message, ctx) => {
-  await api.createMenu(menu)
+const wechatMessageService = wechat(config).middleware(async (message, ctx) => {
   console.log('收到的消息:', message)
-  const { ToUserName, FromUserName, CreateTime, MsgType, Content, MsgId } = message
+  const { Content } = message
   switch (Content) {
     case 'text':
       return 'Hello World！'
@@ -41,6 +35,9 @@ router.post('/', wechat(async (message, ctx) => {
     default:
       return '请到首页逛一逛：http://wzydmx.natappfree.cc/'
   }
-}))
+})
 
-module.exports = router
+module.exports = {
+  wechatConfig,
+  wechatMessageService,
+}
