@@ -11,6 +11,7 @@ router.get('/createMenu', async (ctx) => {
     ctx.body = err
   }
 })
+
 router.get('/removeMenu', async (ctx) => {
   try {
     const result = await menu.removeMenu()

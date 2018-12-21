@@ -10,7 +10,7 @@ const defaultMenus = {
     {
       type: 'view',
       name: '员工绑定',
-      url: 'http://2rz8ah.natappfree.cc/wechat/stuffBind',
+      url: 'http://3npas4.natappfree.cc/wechat/stuffBind',
     },
   ],
 }
