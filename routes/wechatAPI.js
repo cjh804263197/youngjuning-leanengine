@@ -1,6 +1,5 @@
 const Router = require('koa-router')
 const { menu, template } = require('../controllers/wechatAPI')
-const api = require('../controllers/wechatAPI/api')
 
 const router = new Router({ prefix: '/wechatAPI' })
 

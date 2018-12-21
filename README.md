@@ -7,11 +7,19 @@
 
 ## 微信公众平台开发
 
-### 消息管理
+### 已实现功能
+
+#### 消息管理
 
 - 接口配置：`${url}/wechat`
 
-### 自定义菜单
+#### 自定义菜单
 
-- 创建菜单：`${url}/wechatAPI/createMenu`
-- 删除菜单：`${url}/wechatAPI/removeMenu`
+- 创建菜单：`/wechatAPI/createMenu`
+- 删除菜单：`/wechatAPI/removeMenu`
+
+#### 模版消息
+
+- 设置所属行业：`/wechatAPI/setIndustry`
+- 获得模板ID：`/wechatAPI/addTemplate`
+- 发送模版消息：`/wechatAPI/sendTemplate`
