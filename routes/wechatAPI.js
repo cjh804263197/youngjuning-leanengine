@@ -1,10 +1,13 @@
 const Router = require('koa-router')
 const { menu, template } = require('../controllers/wechatAPI')
+const api = require('../controllers/wechatAPI/api')
 
 const router = new Router({ prefix: '/wechatAPI' })
 
+// -----菜单管理----- //
+
 // 创建菜单
-router.get('/createMenu', async (ctx) => {
+router.post('/createMenu', async (ctx) => {
   try {
     const result = await menu.createMenu()
     ctx.body = result
@@ -17,6 +20,33 @@ router.get('/createMenu', async (ctx) => {
 router.get('/removeMenu', async (ctx) => {
   try {
     const result = await menu.removeMenu()
+    ctx.body = result
+  } catch (err) {
+    ctx.body = err
+  }
+})
+
+// -----模版消息----- //
+// 设置所属行业
+router.post('/setIndustry', async (ctx) => {
+  const { body } = ctx.request
+  const { id1, id2 } = body
+  try {
+    const result = await template.setIndustry({
+      industry_id1: id1,
+      industry_id2: id2,
+    })
+    ctx.body = result
+  } catch (err) {
+    ctx.body = err
+  }
+})
+
+// 获得模板ID
+router.get('/addTemplate', async (ctx) => {
+  const { templateIdShort } = ctx.query
+  try {
+    const result = await template.addTemplate(templateIdShort)
     ctx.body = result
   } catch (err) {
     ctx.body = err

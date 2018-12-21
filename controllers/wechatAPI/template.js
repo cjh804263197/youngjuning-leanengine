@@ -2,7 +2,46 @@ const api = require('./api')
 
 module.exports = {
   /**
-   * [sendTemplate 发送模版消息]
+   * 设置所属行业
+   *
+   * wechat: http://t.cn/RT9fI1F
+   *
+   * co-wechat-api: http://t.cn/E4xve4K
+   *
+   * Example:
+   * ```
+   * const industryIds = {
+   *   "industry_id1": "1"
+   *   "industry_id2": "4"
+   * }
+   * ```
+   *
+   * @param  {Object}  industryIds 公众号模版消息所属行业编号
+   */
+  async setIndustry(industryIds) {
+    const result = await api.setIndustry(industryIds)
+    return result
+  },
+
+
+  // http://t.cn/E4x2X95
+  /**
+   * 获得模版ID
+   *
+   * @wechat http://t.cn/RT9fI1F
+   *
+   * @co http://t.cn/E4xUtov
+   *
+   * @param  {String}  templateIdShort 模板库中模板的编号，有“TM**”和“OPENTMTM**”等形式
+   *
+   */
+  async addTemplate(templateIdShort) {
+    const result = await api.addTemplate(templateIdShort)
+    return result
+  },
+
+  /**
+   * 发送模版消息
    *
    * wechat: http://t.cn/RT9fI1F
    *
@@ -16,7 +55,6 @@ module.exports = {
    * @param  {[Object]}  miniprogram [跳转小程序所需数据 {appid, pagepath}]
    */
   async sendTemplate({ openid, templateId, url, topColor, data, miniprogram }) {
-    console.log(openid, templateId, url, topColor, data, miniprogram)
     const result = await api.sendTemplate(openid, templateId, url, topColor, data, miniprogram)
     return result
   },
