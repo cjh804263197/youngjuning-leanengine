@@ -11,12 +11,12 @@
 
 #### 消息管理
 
-- 接口配置：`${url}/wechat`
+- 接口配置：`/wechat`
 
 #### 自定义菜单
 
-- 创建菜单：`/wechatAPI/createMenu`
-- 删除菜单：`/wechatAPI/removeMenu`
+- 创建菜单（post）：`/wechatAPI/createMenu`
+- 删除菜单（get）：`/wechatAPI/removeMenu`
 
 #### 模版消息
 

@@ -7,8 +7,11 @@ const router = new Router({ prefix: '/wechatAPI' })
 
 // 创建菜单
 router.post('/createMenu', async (ctx) => {
+  const { body } = ctx.request
+  const { menus } = body
+  console.log(menus)
   try {
-    const result = await menu.createMenu()
+    const result = await menu.createMenu(menus)
     ctx.body = result
   } catch (err) {
     ctx.body = err

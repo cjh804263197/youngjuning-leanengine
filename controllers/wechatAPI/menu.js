@@ -13,20 +13,19 @@ const defaultMenus = {
 // 菜单操作: http://t.cn/Eyl3Ojs
 module.exports = {
   /**
-   * [createMenu 自定义菜单创建接口]
+   * 自定义菜单创建接口
    *
    * wechat: http://t.cn/RWeIP2N
    *
    * co-wechat-api: http://t.cn/Eyl9fxX
    *
    * @param menu Object
-   *
-   * @return {Promise} [Result:{"errcode":0,"errmsg":"ok"}]
    */
   async createMenu(menus = defaultMenus) {
-    const result = await api.createMenu(menus)
+    const result = await api.createMenu(JSON.parse(menus))
     return result
   },
+
   /**
    * [getMenu 获取菜单]
    *
@@ -42,7 +41,7 @@ module.exports = {
   },
 
   /**
-   * [removeMenu 删除自定义菜单]
+   * 删除自定义菜单
    *
    * wecaht: http://t.cn/EyWSsPb
    *
