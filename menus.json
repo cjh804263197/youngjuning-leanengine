@@ -1,0 +1,14 @@
+{
+  "button": [
+    {
+      "type": "click",
+      "name": "今日歌曲",
+      "key": "song"
+    },
+    {
+      "type": "view",
+      "name": "员工绑定",
+      "url": "http://gi9yuf.natappfree.cc/wechat/stuffBind"
+    }
+  ]
+}
