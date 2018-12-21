@@ -9,7 +9,6 @@ const router = new Router({ prefix: '/wechatAPI' })
 router.post('/createMenu', async (ctx) => {
   const { body } = ctx.request
   const { menus } = body
-  console.log(menus)
   try {
     const result = await menu.createMenu(menus)
     ctx.body = result
@@ -34,10 +33,7 @@ router.post('/setIndustry', async (ctx) => {
   const { body } = ctx.request
   const { id1, id2 } = body
   try {
-    const result = await template.setIndustry({
-      industry_id1: id1,
-      industry_id2: id2,
-    })
+    const result = await template.setIndustry(id1, id2)
     ctx.body = result
   } catch (err) {
     ctx.body = err
@@ -58,9 +54,8 @@ router.get('/addTemplate', async (ctx) => {
 // 发送模版消息
 router.post('/sendTemplate', async (ctx) => {
   const { body } = ctx.request
-  const data = JSON.parse(body.data)
   try {
-    const result = await template.sendTemplate({ ...body, data })
+    const result = await template.sendTemplate(body)
     ctx.body = result
   } catch (err) {
     ctx.body = err

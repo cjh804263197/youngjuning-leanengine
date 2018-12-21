@@ -18,8 +18,11 @@ module.exports = {
    *
    * @param  {Object}  industryIds 公众号模版消息所属行业编号
    */
-  async setIndustry(industryIds) {
-    const result = await api.setIndustry(industryIds)
+  async setIndustry({ id1, id2 }) {
+    const result = await api.setIndustry({
+      industry_id1: id1,
+      industry_id2: id2,
+    })
     return result
   },
 
@@ -55,7 +58,7 @@ module.exports = {
    * @param  {[Object]}  miniprogram [跳转小程序所需数据 {appid, pagepath}]
    */
   async sendTemplate({ openid, templateId, url, topColor, data, miniprogram }) {
-    const result = await api.sendTemplate(openid, templateId, url, topColor, data, miniprogram)
+    const result = await api.sendTemplate(openid, templateId, url, topColor, JSON.parse(data), miniprogram)
     return result
   },
 

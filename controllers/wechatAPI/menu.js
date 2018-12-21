@@ -22,6 +22,7 @@ module.exports = {
    * @param menu Object
    */
   async createMenu(menus = defaultMenus) {
+    console.log('新菜单配置：', menus)
     const result = await api.createMenu(JSON.parse(menus))
     return result
   },
