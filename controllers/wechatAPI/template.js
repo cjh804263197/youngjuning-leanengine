@@ -23,7 +23,10 @@ module.exports = {
 
   /**
    * 发送模板消息支持小程序
-   * 文档： https://developers.weixin.qq.com/miniprogram/dev/api/notice.html
+   *
+   * miniprogram: http://t.cn/EZeydcl
+   *
+   * co-wechat-api: http://t.cn/E4MdMHb
    *
    * @param {String} openid 用户的openid
    * @param {String} templateId 模板ID
