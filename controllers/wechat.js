@@ -15,8 +15,8 @@ const wechatMessageService = wechat(config).middleware(async (message, ctx) => {
     if (Event === 'subscribe') {
       return '终于等到你，还好没放弃'
     } else if (Event === 'CLICK') {
-      if (EventKey === 'song') {
-        return '今天并没有歌！'
+      if (EventKey === 'button1') {
+        return '你点击了按钮一'
       }
     }
   }
